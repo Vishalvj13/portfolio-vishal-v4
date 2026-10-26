@@ -1,0 +1,182 @@
+.skills-section { margin-top: var(--section-gap); padding: 42px 34px; scroll-margin-top: 90px; }
+.skills-title { margin: 0; color: var(--heading); font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -.035em; }
+.skills-intro { color: var(--text-soft); line-height: 1.8; margin: 16px 0 0; max-width: 680px; }
+.skills-section .section-heading { margin-bottom: 28px; }
+.skills-tab-row { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 20px; border-bottom: 1px solid var(--surface-border); }
+.skills-tab { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 15px; border-radius: 10px; color: var(--text-soft); background: transparent; font-size: .85rem; cursor: pointer; }
+.skills-tab:hover { color: var(--heading); background: var(--surface); }
+.skills-tab.active { color: var(--primary); background: color-mix(in srgb, var(--primary) 12%, transparent); }
+.skills-tab:focus-visible, #skills-panel:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+.skills-category-description { margin: 22px 0; color: var(--text-soft); line-height: 1.7; font-size: .9rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.skill-card { padding: 22px; border-radius: 14px; border: 1px solid var(--surface-border); background: var(--surface-strong); }
+.skill-card-title-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.skill-card-icon { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: color-mix(in srgb, var(--primary) 8%, transparent); flex-shrink: 0; }
+.skill-card h3 { color: var(--heading); margin: 0; font-size: .95rem; font-weight: 600; line-height: 1.5; }
+.skill-card p { color: var(--text-soft); font-size: .83rem; line-height: 1.75; margin: 0; }
+/* Category icon colors */
+.icon-backend {
+  color: #5b6df7;
+}
+
+.icon-frontend {
+  color: #06b6d4;
+}
+
+.icon-cloud {
+  color: #f59e0b;
+}
+
+.icon-database {
+  color: #3b82f6;
+}
+
+.icon-tools {
+  color: #64748b;
+}
+
+.icon-practices {
+  color: #10b981;
+}
+
+/* Skill icon colors */
+.icon-java {
+  color: #c77700;
+}
+
+.icon-spring {
+  color: #22c55e;
+}
+
+.icon-hibernate {
+  color: #2563eb;
+}
+
+.icon-microservices {
+  color: #6366f1;
+}
+
+.icon-api {
+  color: #0ea5e9;
+}
+
+.icon-json {
+  color: #8b5cf6;
+}
+
+.icon-react {
+  color: #06b6d4;
+}
+
+.icon-js {
+  color: #d4a017;
+}
+
+.icon-htmlcss {
+  color: #ec4899;
+}
+
+.icon-theme {
+  color: #7c3aed;
+}
+
+.icon-state {
+  color: #4f46e5;
+}
+
+.icon-ux {
+  color: #14b8a6;
+}
+
+.icon-aws {
+  color: #f59e0b;
+}
+
+.icon-security {
+  color: #10b981;
+}
+
+.icon-cicd {
+  color: #6366f1;
+}
+
+.icon-docker {
+  color: #0ea5e9;
+}
+
+.icon-automation {
+  color: #8b5cf6;
+}
+
+.icon-iam {
+  color: #059669;
+}
+
+.icon-mysql {
+  color: #3b82f6;
+}
+
+.icon-sql {
+  color: #2563eb;
+}
+
+.icon-entity {
+  color: #7c3aed;
+}
+
+.icon-repository {
+  color: #0f766e;
+}
+
+.icon-git {
+  color: #f97316;
+}
+
+.icon-postman {
+  color: #fb923c;
+}
+
+.icon-jira {
+  color: #2563eb;
+}
+
+.icon-editor {
+  color: #06b6d4;
+}
+
+.icon-docs {
+  color: #8b5cf6;
+}
+
+.icon-debug {
+  color: #ef4444;
+}
+
+.icon-testing {
+  color: #f59e0b;
+}
+
+.icon-securecoding {
+  color: #10b981;
+}
+
+.icon-performance {
+  color: #0ea5e9;
+}
+
+.icon-servicedesign {
+  color: #6366f1;
+}
+
+.icon-collaboration {
+  color: #14b8a6;
+}
+
+
+@media (max-width: 960px) { .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .skills-section { padding: 30px 20px; } .skills-tab { padding: 10px 12px; font-size: .8rem; } .skills-grid { grid-template-columns: 1fr; gap: 12px; } .skill-card { padding: 20px; } }
+
+/* Keep darker brand-colored icons visible on navy cards. */
+[data-theme='dark'] :is(.icon-hibernate, .icon-sql, .icon-jira) { color: #7daaff; }
+[data-theme='dark'] :is(.icon-repository, .icon-iam) { color: #45c9b0; }
+[data-theme='dark'] .icon-java { color: #edb64e; }

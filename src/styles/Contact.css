@@ -1,0 +1,22 @@
+.contact-section { margin-top: var(--section-gap); padding: 48px 34px; scroll-margin-top: 90px; }
+.contact-simple-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 60px; align-items: center; }
+.contact-simple-title { margin: 0; color: var(--heading); font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing: -.035em; line-height: 1.2; }
+.contact-simple-copy { color: var(--text-soft); font-size: 1rem; line-height: 1.8; margin: 20px 0; max-width: 440px; }
+.contact-open { display: flex; align-items: baseline; gap: 10px; color: var(--text-soft); font-size: .82rem; line-height: 1.8; }
+.contact-open > span { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+.contact-simple-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.contact-email-action, .contact-copy-action { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 18px; font-size: .9rem; border-radius: 10px; cursor: pointer; }
+.contact-email-action { color: white; background: linear-gradient(115deg, #5141e9, #7928ed); }
+.contact-copy-action { color: var(--text); background: transparent; border: 1px solid var(--surface-border); }
+.contact-visible-email { color: var(--text-soft); font-size: .85rem; margin: 16px 0 0; overflow-wrap: anywhere; user-select: all; }
+.contact-copy-status { min-height: 1.8em; color: var(--primary); font-size: .78rem; line-height: 1.8; margin: 8px 0 0; }
+.contact-profile-links { display: grid; gap: 12px; }
+.contact-profile-links > a, .contact-profile-links > button { display: flex; width: 100%; gap: 15px; align-items: center; padding: 20px; border: 1px solid var(--surface-border); border-radius: 14px; background: var(--surface-strong); color: var(--text); text-align: left; cursor: pointer; }
+.contact-profile-links > a:hover, .contact-profile-links > button:hover { border-color: var(--primary); }
+.contact-profile-links > a > svg:first-child, .contact-profile-links > button > svg:first-child { color: var(--primary); flex-shrink: 0; }
+.contact-profile-links > a > svg:last-child, .contact-profile-links > button > svg:last-child { margin-left: auto; flex-shrink: 0; color: var(--text-soft); }
+.contact-profile-links strong { display: block; font-size: .9rem; font-weight: 600; color: var(--heading); }
+.contact-profile-links small { display: block; margin-top: 6px; color: var(--text-soft); font-size: .76rem; line-height: 1.6; }
+.contact-section a:focus-visible, .contact-section button:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+@media (max-width: 800px) { .contact-simple-layout { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 640px) { .contact-section { padding: 30px 20px; } .contact-profile-links > a, .contact-profile-links > button { padding: 16px; } }

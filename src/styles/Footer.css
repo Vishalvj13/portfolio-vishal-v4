@@ -1,0 +1,96 @@
+.footer {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 18px;
+  padding: 20px 24px;
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: var(--shadow-soft);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.footer-name {
+  margin: 0;
+  color: var(--heading);
+  font-size: 1.2rem;
+}
+
+.footer-tagline {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+}
+
+.footer-socials,
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footer-socials a,
+.footer-actions button {
+  color: var(--heading);
+  font-weight: 600;
+  transition: color 0.24s ease, transform 0.24s ease;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-socials a:hover,
+.footer-actions button:hover {
+  color: var(--primary-2);
+  transform: translateY(-1px);
+}
+
+.footer-bottom {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    width: min(calc(100% - 20px), 1180px);
+    margin-bottom: 10px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Match the shared section card styling. */
+.footer {
+  width: min(1180px, calc(100% - 32px));
+  padding: 32px 40px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-soft);
+}
+.footer-content { gap: 24px; flex-wrap: wrap; }
+.footer-name { font-size: 1.2rem; font-weight: 650; letter-spacing: -.02em; color: var(--heading); }
+.footer-tagline { color: var(--text-soft); font-size: .95rem; line-height: 1.8; max-width: 440px; }
+.footer-socials, .footer-actions { gap: 18px; }
+.footer-socials a, .footer-actions button { font-size: .85rem; font-weight: 500; }
+.footer-bottom { border-top-color: var(--surface-border); padding-top: 20px; margin-top: 24px; font-size: .8rem; line-height: 1.8; }
+.footer a:focus-visible, .footer button:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+@media (max-width: 800px) { .footer { padding: 30px; } }
+@media (max-width: 768px) { .footer { width: min(1180px, calc(100% - 20px)); } }
+@media (max-width: 640px) { .footer { padding: 26px 20px; border-radius: 20px; } }

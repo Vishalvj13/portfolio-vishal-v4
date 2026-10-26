@@ -1,0 +1,66 @@
+/* Shared layout and type for all content sections. */
+.app-container > .section-card {
+  width: 100%;
+  margin: 64px 0 0;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  scroll-margin-top: 90px;
+}
+.app-container > .section-card .section-heading,
+.app-container > .section-card .now-heading {
+  margin: 0 0 28px;
+  text-align: left;
+}
+.app-container > .section-card .section-kicker {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: .75rem;
+  line-height: 1.5;
+  font-weight: 650;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+.app-container > .section-card h2 {
+  display: block;
+  color: var(--heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+.app-container > .section-card .title-underline { display: none; }
+.app-container > .section-card :is(.about-intro, .skills-intro, .now-heading > p:last-child, .projects-intro > p, .writing-intro > p, .contact-simple-copy) {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.app-container > .section-card :is(.about-intro, .skills-intro, .now-heading > p:last-child) { margin: 16px 0 0; }
+.app-container > .section-card :is(.project-card, .skill-card, .writing-card, .edu-card, .experience-card, .about-person-aside) {
+  border-radius: 16px;
+  border-color: var(--surface-border);
+  background: var(--surface-strong);
+  box-shadow: none;
+}
+.app-container > .section-card :is(.skill-card h3, .writing-card h3, .now-card h3) {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.app-container > .section-card :is(.skill-card > p, .writing-card > p, .project-description, .now-card > p) {
+  font-size: .95rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+.app-container > .section-card :is(.skills-tab, .about-tabs button, .filter-chip) { border-radius: 10px; }
+@media (max-width: 800px) {
+  .app-container > .section-card { padding: 30px; margin-top: 48px; }
+}
+@media (max-width: 640px) {
+  .app-container > .section-card { padding: 26px 20px; border-radius: 20px; margin-top: 36px; }
+  .app-container > .section-card .section-heading,
+  .app-container > .section-card .now-heading { margin-bottom: 24px; }
+}

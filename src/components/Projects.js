@@ -1,0 +1,335 @@
+import React, { useMemo, useState } from 'react';
+import '../styles/Projects.css';
+import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
+import { ExternalLink, ArrowRight, Search, X, CheckCircle2 } from 'lucide-react';
+import hmsImg from '../assets/hms1.jpg';
+import sbmImg from '../assets/sbm1.jpg';
+import awsdeployImg from '../assets/awsdeploy.png';
+import websiteImg from '../assets/websiteImg.png';
+import orderProcessingImg from '../assets/orderProcessingImg.png';
+import microservicesCommerceImg from '../assets/microservicesCommerceImg.png';
+
+const projects = [
+  {
+    title: 'Hospital Management System',
+    category: 'Full Stack',
+    tech: ['React', 'Spring Boot', 'JPA', 'MySQL', 'AWS'],
+    description: 'A full-stack hospital workflow platform designed to organize patient, staff, and operational interactions through a cleaner digital flow.',
+    highlights: [
+      'Structured with a strong backend + frontend separation using Spring Boot and React.',
+      'Focused on maintainability, modular design, and realistic CRUD-driven operations.',
+      'Designed as a real-world style project rather than a simple UI demo.',
+    ],
+    image: hmsImg,
+    github: 'https://github.com/Vishalvj13/hospital-management-system',
+    role: 'Built both backend and frontend flows with an emphasis on clean structure and realistic module separation.',
+    challenges: ['Keeping the flow modular instead of building it as one flat demo', 'Making the UI and backend responsibilities clearly separated'],
+    impact: 'Demonstrates full-stack ownership and how I think about system structure beyond just screens.',
+  },
+  {
+    title: 'Microservices Commerce Platform',
+    category: 'Backend / Microservices Architecture',
+    tech: [
+      'Java 17',
+      'Spring Boot',
+      'Spring Cloud',
+      'Kafka',
+      'PostgreSQL',
+      'Docker',
+      'Maven'
+    ],
+    description:
+      'A backend-focused microservices platform built to explore distributed system architecture, scalable service design, asynchronous communication, and cloud-native development practices using independently deployable services.',
+
+    highlights: [
+      'Designed around independently deployable services including Product, Order, User, Notification, and API Gateway components.',
+      'Focused on event-driven workflows, service-to-service communication, and scalable backend architecture patterns inspired by real-world systems.',
+      'Practiced distributed system concepts such as API gateway routing, database-per-service architecture, and asynchronous messaging with Kafka.',
+    ],
+    image: microservicesCommerceImg,
+    github: 'https://github.com/Vishalvj13/microservices-commerce-platform',
+    role:
+      'Built backend microservices emphasizing modular service boundaries, event-driven communication, distributed workflows, and scalable system design.',
+    challenges: [
+      'Designing reliable inter-service communication while maintaining loose coupling between services',
+      'Managing asynchronous workflows and event consistency across independently deployable services',
+    ],
+    impact:
+      'Demonstrates practical understanding of microservices architecture, distributed backend systems, event-driven processing, and cloud-native application development.',
+  },
+  {
+   title: 'Order Processing Platform',
+   category: 'Backend / Distributed Systems',
+   tech: ['Spring Boot', 'Microservices', 'Kafka', 'PostgreSQL', 'Docker'],
+   description: 'A backend-driven order lifecycle platform designed to manage order creation, validation, and processing through scalable service-to-service communication.',
+   highlights: [
+     'Structured with clear service boundaries to simulate real-world order lifecycle handling.',
+     'Focused on asynchronous processing, modular backend design, and maintainable business logic.',
+     'Designed to showcase practical order orchestration and reliable inter-service communication beyond basic CRUD APIs.',
+  ],
+   image: orderProcessingImg,
+   github: 'https://github.com/Vishalvj13/order-processing-platform',
+   role: 'Built backend services focused on order flow orchestration, service interaction, and scalable processing patterns.',
+   challenges: [
+     'Designing service communication without tightly coupling the business flow',
+     'Keeping order processing extensible while maintaining clean module separation',
+   ],
+   impact: 'Demonstrates backend architecture thinking around distributed systems, event-driven flow, and production-style service decomposition.',
+  },
+  {
+    title: 'Quiz Management Microservices',
+    category: 'Backend / Microservices',
+    tech: ['Spring Boot', 'Spring Cloud', 'Feign', 'Eureka', 'API Gateway'],
+    description: 'A microservices-based quiz and question platform built to demonstrate service decomposition, gateway routing, and discoverable APIs.',
+    highlights: [
+      'Split responsibilities across services with Spring Cloud support for scale-ready architecture.',
+      'Used Eureka and gateway routing for cleaner service communication patterns.',
+      'Showcases practical backend architecture thinking beyond single-service applications.',
+    ],
+    image: sbmImg,
+    github: 'https://github.com/Vishalvj13/microservices-spring-boot',
+    role: 'Focused on service boundaries, communication flow, and architecture thinking rather than just CRUD implementation.',
+    challenges: ['Managing service-to-service communication cleanly', 'Designing a project that shows backend architecture intent clearly'],
+    impact: 'Useful as a proof point for distributed-system thinking and backend design maturity.',
+  },
+  {
+    title: 'AWS Deployment for Employee Management System',
+    category: 'Cloud / DevOps',
+    tech: ['AWS', 'EC2', 'S3', 'CloudFront', 'RDS', 'React', 'Spring Boot'],
+    description: 'An end-to-end deployment project showing how a React + Spring Boot application can be hosted reliably across core AWS services.',
+    highlights: [
+      'Frontend delivered through S3 and CloudFront for fast static hosting.',
+      'Backend hosted on EC2 with MySQL on RDS to reflect production-style separation.',
+      'Demonstrates hands-on deployment, environment ownership, and cloud integration skills.',
+    ],
+    image: awsdeployImg,
+    github: 'https://github.com/Vishalvj13/reat.js-springboot-mysql-aws-deployment',
+    role: 'Handled the deployment-oriented view of how application layers connect across AWS services.',
+    challenges: ['Separating frontend, backend, and database infrastructure cleanly', 'Making the deployment reflect a more production-like setup'],
+    impact: 'Shows cloud awareness beyond code alone and connects nicely with my AWS certifications.',
+  },
+  {
+    title: 'Personal Portfolio Website',
+    category: 'Frontend / Product UI',
+    tech: ['React', 'JavaScript', 'CSS', 'Framer Motion'],
+    description: 'A polished personal website created to present projects, certifications, engineering experience, and technical personality in one place.',
+    highlights: [
+      'Built with interactive sections, layered motion, and recruiter-friendly content flow.',
+      'Designed to feel more premium than a plain resume-style portfolio.',
+      'Continuously improved as a live representation of product sense and frontend growth.',
+    ],
+    image: websiteImg,
+    github: 'https://github.com/Vishalvj13/portfolio-vishal',
+    live: 'https://portfolio-vishal-beige.vercel.app/',
+    role: 'Used as a live environment to improve frontend polish, interaction design, and storytelling.',
+    challenges: ['Balancing premium motion with clarity', 'Making the site feel product-like instead of template-like'],
+    impact: 'Acts as both a portfolio and a visible proof of frontend improvement over time.',
+  },
+];
+
+const featuredTitles = ['Microservices Commerce Platform', 'Order Processing Platform', 'Hospital Management System'];
+const filters = ['All', 'Backend', 'Cloud', 'Full Stack', 'Frontend'];
+const projectSummaries = {
+  'Microservices Commerce Platform': 'Independent commerce services with Kafka messaging, API gateway routing, and a database per service.',
+  'Order Processing Platform': 'An order lifecycle backend exploring asynchronous processing and clear service boundaries.',
+  'Hospital Management System': 'A React and Spring Boot application for patient, staff, and hospital workflows.',
+  'Quiz Management Microservices': 'Quiz and question services connected through service discovery and an API gateway.',
+  'AWS Deployment for Employee Management System': 'A React and Spring Boot deployment using S3, CloudFront, EC2, and RDS.',
+  'Personal Portfolio Website': 'A React portfolio with responsive layouts, theme switching, and interactive project previews.',
+};
+const orderedProjects = [...projects].sort((a, b) => {
+  const rank = project => featuredTitles.includes(project.title) ? featuredTitles.indexOf(project.title) : featuredTitles.length;
+  return rank(a) - rank(b);
+});
+
+const Projects = () => {
+  const [search, setSearch] = useState('');
+  const [showAll, setShowAll] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const filteredProjects = useMemo(() => {
+    return orderedProjects.filter((project) => {
+      const matchesFilter = activeFilter === 'All' || project.category.startsWith(activeFilter);
+      const haystack = `${project.title} ${project.description} ${project.category} ${project.tech.join(' ')}`.toLowerCase();
+      const matchesSearch = haystack.includes(search.trim().toLowerCase());
+      return matchesFilter && matchesSearch;
+    });
+  }, [activeFilter, search]);
+
+  const isFiltering = activeFilter !== 'All' || search.trim() !== '';
+  const visibleProjects = showAll || isFiltering ? filteredProjects : filteredProjects.slice(0, 3);
+
+  return (
+    <section className="projects-section section-card" id="projects">
+      <div className="section-heading left-aligned">
+        <p className="section-kicker">Projects</p>
+        <h2 className="projects-title">
+          Projects
+        </h2>
+
+      </div>
+
+      <div className="projects-intro projects-toolbar-wrap">
+        <p>
+          Backend systems, cloud deployments, and full-stack applications — a closer look at how I build.
+        </p>
+        <div className="projects-toolbar">
+          <div className="project-search-box">
+            <Search size={16} />
+            <input
+              aria-label="Search projects"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Search by project, category, or tech"
+            />
+          </div>
+          <div className="project-filters">
+            {filters.map((filter) => (
+              <button
+                type="button"
+                aria-pressed={activeFilter === filter}
+                key={filter}
+                className={`filter-chip ${activeFilter === filter ? 'active' : ''}`}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <motion.div
+        className="projects-container"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        {visibleProjects.map((project) => (
+          <motion.article
+            className="project-card"
+            key={project.title}
+            whileHover={{ y: -4 }}
+            transition={{ type: 'spring', stiffness: 150, damping: 18 }}
+          >
+            <button className="project-image-wrapper" onClick={() => setSelectedProject(project)}>
+              <img src={project.image} alt={project.title} className="carousel-image" loading="lazy" />
+            </button>
+
+            <div className="project-info">
+              <div className="project-meta-row">
+                <span className="project-index">{featuredTitles.includes(project.title) ? 'Featured' : 'More work'}</span>
+                <div className="project-links">
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Open ${project.title}`}>
+                      <ExternalLink size={18} />
+                    </a>
+                  )}
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`View ${project.title} source`}>
+                    <FaGithub size={18} />
+                  </a>
+                </div>
+              </div>
+
+              <span className="project-category">{project.category}</span>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{projectSummaries[project.title]}</p>
+
+              <div className="project-tech-row">
+                {project.tech.slice(0, 4).map((item) => (
+                  <span key={item} className="tech-tag">{item}</span>
+                ))}
+              </div>
+
+              <button className="project-case-btn" onClick={() => setSelectedProject(project)}>Explore project <ArrowRight size={16} /></button>
+            </div>
+          </motion.article>
+        ))}
+      </motion.div>
+
+      {!isFiltering && (
+        <button className="projects-show-more" onClick={() => setShowAll(value => !value)} aria-expanded={showAll}>
+          {showAll ? 'Show featured projects' : 'View more projects'} <ArrowRight size={16} />
+        </button>
+      )}
+      <p className="projects-result-count" role="status">{isFiltering ? `${filteredProjects.length} project${filteredProjects.length === 1 ? '' : 's'} found` : ''}</p>
+
+      {!filteredProjects.length && (
+        <div className="project-empty-state">
+          <p>No project matched that filter or search term. Try another keyword or reset to All.</p>
+        </div>
+      )}
+
+      {selectedProject && (
+        <div className="project-modal" onClick={() => setSelectedProject(null)} role="presentation">
+          <div className="project-modal-panel" onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${selectedProject.title} details`}>
+            <button className="project-modal-close" onClick={() => setSelectedProject(null)} aria-label="Close preview">
+              <X size={18} />
+            </button>
+
+            <div className="project-modal-grid">
+              <div className="project-modal-visual">
+                <img src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+              <div className="project-modal-copy">
+                <span className="project-category">{selectedProject.category}</span>
+                <h3>{selectedProject.title}</h3>
+                <p>{selectedProject.description}</p>
+
+                <div className="project-detail-block">
+                  <h4>My role</h4>
+                  <p>{selectedProject.role}</p>
+                </div>
+
+                <div className="project-detail-block">
+                  <h4>Key highlights</h4>
+                  <ul>
+                    {selectedProject.highlights.map((highlight) => (
+                      <li key={highlight}><CheckCircle2 size={15} /> {highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="project-detail-block">
+                  <h4>Interesting challenges</h4>
+                  <ul>
+                    {selectedProject.challenges.map((challenge) => (
+                      <li key={challenge}><CheckCircle2 size={15} /> {challenge}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="project-detail-block">
+                  <h4>Impact</h4>
+                  <p>{selectedProject.impact}</p>
+                </div>
+
+                <div className="project-tech-row">
+                  {selectedProject.tech.map((item) => (
+                    <span key={item} className="tech-tag">{item}</span>
+                  ))}
+                </div>
+
+                <div className="project-modal-actions">
+                  {selectedProject.live && (
+                    <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="project-case-btn filled">
+                      <ExternalLink size={16} /> Live demo
+                    </a>
+                  )}
+                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="project-case-btn">
+                    <FaGithub size={16} /> View source
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Projects;
