@@ -940,3 +940,41 @@
   .home { padding-top: 72px; }
   .hero-stage::before { inset-inline: -14px; }
 }
+/* Align certifications with the hero's content edges and columns. */
+.hero-credentials,
+[data-theme='light'] .hero-credentials {
+  width: min(1132px, 100%);
+  margin: 12px auto 0;
+  padding: 28px 24px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 36px;
+  box-sizing: border-box;
+}
+
+.hero-certifications { gap: 12px; }
+.hero-certifications a { height: 72px; }
+.hero-certifications img { width: 58px; height: 64px; }
+
+@media (max-width: 900px) {
+  .hero-credentials,
+  [data-theme='light'] .hero-credentials {
+    padding-inline: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-credentials,
+  [data-theme='light'] .hero-credentials {
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 24px 14px;
+    gap: 18px;
+  }
+
+  .hero-certifications img {
+    width: 48px;
+    height: 54px;
+  }
+}
