@@ -978,3 +978,17 @@
     height: 54px;
   }
 }
+/* Start the hero closer to the fixed navbar. */
+.hero-stage {
+  min-height: 520px;
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+
+@media (max-width: 640px) {
+  .hero-stage {
+    min-height: auto;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+}
